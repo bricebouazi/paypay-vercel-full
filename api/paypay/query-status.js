@@ -40,14 +40,14 @@ export default async function handler(req, res) {
     const params = {
       charset: 'UTF-8',
       biz_content: encrypted,
-      partner_id: config.partnerId,
+      partner_id: process.env.partnerId,
       service: 'trade_query',
       request_no: generateRequestNo(),
       format: 'JSON',
       sign_type: 'RSA',
       version: '1.0',
       timestamp: generateTimestamp(),
-      language: 'pt'
+      language: 'en'
     };
 
     params.sign = generateSignature(params, privateKey);
